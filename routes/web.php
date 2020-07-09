@@ -23,3 +23,11 @@ Route::get('/home', 'HomeController@index')->middleware('verified');
 
 
 Route::resource('empleados', 'EmpleadosController');
+
+Route::resource('clientes', 'ClientesController');
+
+Route::resource('sucursals', 'SucursalController');
+
+Route::resource('pedidos', 'PedidoController');
+
+Route::resource('proveedores', 'ProveedoresController');
