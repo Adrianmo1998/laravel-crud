@@ -64,23 +64,9 @@ class ClientesControllerTest extends TestCase
     }
         
         public function destroy_client()
-    {
-        $Nombre = $this->faker->Nombre;
-        $Apellido_Paterno = $this->faker->Apellido_Paterno;
-        $Apellido_Materno = $this->faker->Apellido_Materno;
-        $Direccion = $this->faker->Direccion;
-        $response = $this->post('destroy', [
-            'Nombre' => $Nombre,
-            'Apellido_Paterno' => $Apellido_Paterno,
-            'Apellido_Materno' => $Apellido_Materno,
-            'Direccion' => $Direccion,
-        ]);
-        $response->assertRedirect(route('clientes'));
-        $this->assertDatabaseHas('clientes',[
-            'Nombre' => $Nombre,
-            'Apellido_Paterno' => $Apellido_Paterno,
-            'Apellido_Materno' => $Apellido_Materno,
-            'Direccion' => $Direccion,
-        ]);
-    }
+        {
+            $response = $this->post('delete/product', [] );
+    
+            $response->assertStatus(404);
+        }
 }
