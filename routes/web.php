@@ -31,3 +31,11 @@ Route::resource('sucursals', 'SucursalController');
 Route::resource('pedidos', 'PedidoController');
 
 Route::resource('proveedores', 'ProveedoresController');
+
+Route::resource('estadoPedidos', 'EstadoPedidoController');
+
+Route::resource('detallePedidos', 'DetallePedidoController');
+
+Route::resource('envioPedidos', 'EnvioPedidoController');
+
+Route::resource('facturas', 'FacturaController');
