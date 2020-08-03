@@ -22,20 +22,30 @@ Auth::routes(['verify' => true]);
 Route::get('/home', 'HomeController@index')->middleware('verified');
 
 
-Route::resource('empleados', 'EmpleadosController');
 
-Route::resource('clientes', 'ClientesController');
 
-Route::resource('sucursals', 'SucursalController');
+Route::post('register', 'UserController@register');
 
-Route::resource('pedidos', 'PedidoController');
+Route::post('login', 'UserController@authenticate');
 
-Route::resource('proveedores', 'ProveedoresController');
+Route::group(['middleware' => ['jwt.verify']], function() {
+    /*AÑADE AQUI LAS RUTAS QUE QUIERAS PROTEGER CON JWT*/
+    Route::resource('empleados', 'EmpleadosController');
 
-Route::resource('estadoPedidos', 'EstadoPedidoController');
+    Route::resource('clientes', 'ClientesController');
 
-Route::resource('detallePedidos', 'DetallePedidoController');
+    Route::resource('sucursals', 'SucursalController');
 
-Route::resource('envioPedidos', 'EnvioPedidoController');
+    Route::resource('pedidos', 'PedidoController');
 
-Route::resource('facturas', 'FacturaController');
+    Route::resource('proveedores', 'ProveedoresController');
+
+    Route::resource('estadoPedidos', 'EstadoPedidoController');
+
+    Route::resource('detallePedidos', 'DetallePedidoController');
+
+    Route::resource('envioPedidos', 'EnvioPedidoController');
+
+    Route::resource('facturas', 'FacturaController');
+    
+});
